@@ -57,6 +57,7 @@ function httpGet(theUrl)
     const xhttp=new XMLHttpRequest();
     xhttp.open("GET",theUrl,false);
     xhttp.ontimeout=function() {SetAlert(' شكله فاصل النت ؟');;MY_REQUESTS.pop();}
+    xhttp.timeout=5000;
     xhttp.withCredentials = true;
     xhttp.setRequestHeader("Cache-Control", "no-cache, no-store, max-age=0");
     xhttp.setRequestHeader("Expires", "Tue, 01 Jan 1980 1:00:00 GMT");
