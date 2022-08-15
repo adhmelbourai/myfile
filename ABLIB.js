@@ -41,7 +41,8 @@ function httpGets(theUrl,cFunction)
 {
     if (IsFull()){return false;}
     var xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {cFunction(this);MY_REQUESTS.pop();}
+    xhttp.onload=function() {cFunction(this);MY_REQUESTS.pop();}
+    xhttp.ontimeout=function() {SetAlert(' شكله فاصل النت ؟');;MY_REQUESTS.pop();}
     xhttp.open("GET",theUrl,true); // false for synchronous request
     xhttp.withCredentials = true;
     xhttp.timeout=5;
@@ -55,13 +56,13 @@ function httpGet(theUrl)
 {
     var xhttp=new XMLHttpRequest();
     xhttp.open("GET",theUrl,false);
+    xhttp.ontimeout=function() {SetAlert(' شكله فاصل النت ؟');;MY_REQUESTS.pop();}
     xhttp.timeout=5;
     xhttp.withCredentials = true;
     xhttp.setRequestHeader("Cache-Control", "no-cache, no-store, max-age=0");
     xhttp.setRequestHeader("Expires", "Tue, 01 Jan 1980 1:00:00 GMT");
     xhttp.setRequestHeader("Pragma", "no-cache");
     xhttp.send();
-    console.log(xhttp.status);
     return xhttp.responseText;
 }
 
