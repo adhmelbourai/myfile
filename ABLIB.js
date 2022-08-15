@@ -40,7 +40,7 @@ abtoast();
 function httpGets(theUrl,cFunction)
 {
     if (IsFull()){return false;}
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
     xhttp.onload=function() {cFunction(this);MY_REQUESTS.pop();}
     xhttp.ontimeout=function() {SetAlert(' شكله فاصل النت ؟');;MY_REQUESTS.pop();}
     xhttp.open("GET",theUrl,true); // false for synchronous request
@@ -54,7 +54,7 @@ function httpGets(theUrl,cFunction)
 }
 function httpGet(theUrl)
 {
-    var xhttp=new XMLHttpRequest();
+    const xhttp=new XMLHttpRequest();
     xhttp.open("GET",theUrl,false);
     xhttp.ontimeout=function() {SetAlert(' شكله فاصل النت ؟');;MY_REQUESTS.pop();}
     xhttp.timeout=5000;
